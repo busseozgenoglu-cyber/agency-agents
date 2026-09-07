@@ -305,6 +305,7 @@ export default function Page() {
   const [activeRun, setActiveRun] = useState<string | null>(null);
   const runRef = useRef<string | null>(null);
   const currentIdRef = useRef<string | null>(null);
+  const roomRequestRef = useRef(0);
   const headingRef = useRef<HTMLHeadingElement>(null);
   async function refresh() {
     try {
@@ -398,6 +399,7 @@ export default function Page() {
       setNotice('Bir projede en fazla 6 personel çalışabilir.');
   }
   async function openProject(project: Project) {
+    const requestId = ++roomRequestRef.current;
     currentIdRef.current = project.id;
     setCurrent(project);
     setMessages([]);
@@ -408,12 +410,20 @@ export default function Page() {
         undefined,
         '?project=' + encodeURIComponent(project.id),
       );
-      setCurrent(result.project);
-      setMessages(result.messages);
+      if (requestId !== roomRequestRef.current) return;
+      setCurrent((previous) =>
+        previous?.id === project.id &&
+        previous.updatedAt > result.project.updatedAt
+          ? previous
+          : result.project,
+      );
+      setMessages((previous) =>
+        previous.length > result.messages.length ? previous : result.messages,
+      );
     } catch (e) {
-      setError((e as Error).message);
+      if (requestId === roomRequestRef.current) setError((e as Error).message);
     } finally {
-      setRoomLoading(false);
+      if (requestId === roomRequestRef.current) setRoomLoading(false);
     }
   }
   async function createProject(e: FormEvent) {
@@ -429,6 +439,8 @@ export default function Page() {
         agentIds: selected,
       });
       setProjectDialog(false);
+      roomRequestRef.current += 1;
+      setRoomLoading(false);
       currentIdRef.current = result.project.id;
       updateProject(result.project);
       setCurrent(result.project);
