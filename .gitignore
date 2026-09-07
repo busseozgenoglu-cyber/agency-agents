@@ -25,6 +25,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 package-lock.json
+# Application lockfiles are required for reproducible npm ci builds.
+!/panel/package-lock.json
+!/desktop/package-lock.json
 yarn.lock
 
 # Python (if adding scripts)
