@@ -1,0 +1,26 @@
+name: Agency panel
+on:
+  pull_request:
+    paths: ['panel/**', '.github/workflows/panel.yml']
+  push:
+    branches: [main]
+    paths: ['panel/**', '.github/workflows/panel.yml']
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: panel
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: panel/package-lock.json
+      - run: npm ci
+      - run: npm run catalog
+      - run: git diff --exit-code -- data
+      - run: npm run test
+      - run: npm run typecheck
+      - run: npm run build

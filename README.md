@@ -1,3 +1,13 @@
+# Buse’nin Ajansı ✦
+
+Buse’nin kişisel yapay zekâ stüdyosu artık bu deponun [`panel/`](panel/) klasöründe. 273 uzman arasından ekip kur, kendi personelini ekle; fikirlerini öneri, ekip değerlendirmesi ve ortak proje sunumuna dönüştür.
+
+Panelde **Nasıl Kullanılır?** rehberi, kalıcı proje kayıtları, personel yönetimi ve çalışma odası bulunur. Gerçek yanıtlar için sunucu OpenAI bağlantısı gerekir. [Kurulum ve çalışma sınırları](panel/README.md).
+
+Aşağıdaki orijinal uzman kütüphanesi ve lisans bilgileri korunmuştur.
+
+---
+
 # 🎭 The Agency: AI Specialists Ready to Transform Your Workflow
 
 > **A complete AI agency at your fingertips** - From frontend wizards to Reddit community ninjas, from whimsy injectors to reality checkers. Each agent is a specialized expert with personality, processes, and proven deliverables.

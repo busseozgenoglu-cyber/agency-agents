@@ -1,0 +1,20 @@
+{
+  "academic": "Akademi",
+  "design": "Tasarım",
+  "engineering": "Yazılım ve Mühendislik",
+  "finance": "Finans",
+  "game-development": "Oyun Geliştirme",
+  "gis": "Harita ve Coğrafi Bilgi",
+  "healthcare": "Sağlık",
+  "marketing": "Pazarlama",
+  "paid-media": "Dijital Reklam",
+  "product": "Ürün Yönetimi",
+  "project-management": "Proje Yönetimi",
+  "research": "Araştırma",
+  "sales": "Satış",
+  "security": "Güvenlik",
+  "spatial-computing": "XR ve Uzamsal Teknolojiler",
+  "specialized": "Özel Uzmanlıklar",
+  "support": "Destek",
+  "testing": "Test ve Kalite"
+}
