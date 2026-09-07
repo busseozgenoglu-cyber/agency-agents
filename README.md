@@ -2,6 +2,8 @@
 
 Buse’nin kişisel yapay zekâ stüdyosu artık bu deponun [`panel/`](panel/) klasöründe. 273 uzman arasından ekip kur, kendi personelini ekle; fikirlerini öneri, ekip değerlendirmesi ve ortak proje sunumuna dönüştür.
 
+[**Buse’nin Ajansı panelini aç**](https://busenin-ajansi.ozgenoglubuse.chatgpt.site) — yalnız sahibinin erişimine açık.
+
 Panelde **Nasıl Kullanılır?** rehberi, kalıcı proje kayıtları, personel yönetimi ve çalışma odası bulunur. Gerçek yanıtlar için sunucu OpenAI bağlantısı gerekir. [Kurulum ve çalışma sınırları](panel/README.md).
 
 Aşağıdaki orijinal uzman kütüphanesi ve lisans bilgileri korunmuştur.
