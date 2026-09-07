@@ -1,3 +1,5 @@
+> **Mac uygulaması:** Uygulamalar’daki Buse’nin Ajansı için kişiselleştirilmiş masaüstü kaynağı ve kurulum bilgileri [`desktop/README.md`](desktop/README.md) içinde. Yeni ana ekran özel web paneline bağlanır; mevcut yerel ajan kataloğu ve ekip araçları korunur.
+
 # Buse’nin Ajansı ✦
 
 Buse’nin kişisel yapay zekâ stüdyosu artık bu deponun [`panel/`](panel/) klasöründe. 273 uzman arasından ekip kur, kendi personelini ekle; fikirlerini öneri, ekip değerlendirmesi ve ortak proje sunumuna dönüştür.
