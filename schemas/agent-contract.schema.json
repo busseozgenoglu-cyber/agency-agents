@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/msitarzewski/agency-agents/schemas/agent-contract.schema.json",
+  "title": "Agency Agent Declarative Contract",
+  "description": "Optional, non-executable sidecar metadata that makes an Agency agent's purpose, capabilities, limits, and stopping conditions explicit without replacing the Markdown source agent.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "agent",
+    "purpose",
+    "capabilities",
+    "limits",
+    "stopping_conditions"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "agent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "source"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Display name from the source agent frontmatter."
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^/]+/.+\\.md$",
+          "description": "Repository-relative path to the human-editable Markdown source agent."
+        },
+        "division": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Top-level division containing the source agent."
+        }
+      }
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The outcome this agent is responsible for."
+    },
+    "capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Things the agent is expected to be able to do. These describe behavior; they do not grant tools or permissions."
+    },
+    "limits": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Explicit boundaries: what the agent must not claim, decide, or do."
+    },
+    "stopping_conditions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Conditions under which the agent should stop, ask for missing information, or hand off instead of continuing."
+    },
+    "inputs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Optional high-level inputs normally required by the agent."
+    },
+    "deliverables": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Optional concrete output types the agent commonly produces."
+    },
+    "handoff_when": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Optional conditions where another specialist or a human should take over."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional human-readable context. This field must not be treated as executable instructions."
+    }
+  }
+}
